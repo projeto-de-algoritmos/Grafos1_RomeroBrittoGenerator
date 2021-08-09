@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { Box } from "@chakra-ui/react"
+
 
 function App() {
+  const renderCol = () => {
+    let numberOfCols = 15;
+    let cols = [];
+    for (let i=0; i<numberOfCols; i++){
+      cols.push(i);
+    }
+
+    console.log(cols);
+  } 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>oi</h1>
+      <button onClick={renderCol}>alisa meu pelo</button>
+      <Box 
+        className="pixel"
+        border="2px"
+        onClick={renderCol}
+      >
+      </Box>
     </div>
   );
 }
