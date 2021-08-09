@@ -3,9 +3,21 @@
 }
 
 .pixel {
-  border-color: black;
-  border-style: solid;
-  width: 50px;
-  height: 50px;
+  border-color: black !important;
+  border-style: solid !important;
+  width: 30px;
+  height: 30px;
   background-color: red;
+}
+
+.table {
+  display: flex;
+  flex-direction: row;
+}
+
+.alignBoard {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
 }
