@@ -1,6 +1,7 @@
 import './App.css';
 import { Box } from "@chakra-ui/react"
 import { useState, useEffect } from 'react';
+import Graph from './structures/Graph';
 
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
   
   useEffect(() => {
     setNumberOfCols(20);
-  }, [])
+    const graph = new Graph(numberOfCols, numberOfCols)
+  }, [numberOfCols])
 
   const renderCol = (row) => {
     let cols = [];
@@ -19,16 +21,16 @@ function App() {
         className="pixel"
         border="1px"
         borderColor="gray.200"
-        onClick={console.log("alisa meu pelo")}
         id={`row${row}-col${column}`}
         key={`row${row}-col${column}`}
+        onClick={() => console.log(`row${row}-col${column}`)}
       >
       </Box>
     ));
   }
 
   const renderTable = () => {
-    let rows = []
+    let rows = [];
     for (let i=0; i<numberOfCols; i++) rows.push(i);
     return rows.map((row) => (
       <Box
