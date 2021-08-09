@@ -1,15 +1,11 @@
 import './App.css';
 import { Box } from "@chakra-ui/react"
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Graph from './structures/Graph';
 
 
 function App() {
-  const [numberOfCols, setNumberOfCols] = useState(20);
-  
-  useEffect(() => {
-    setNumberOfCols(20);
-  }, [numberOfCols])
+  const [numberOfCols, setNumberOfCols] = useState(15);
 
   const renderCol = (row, graph) => {
     let cols = [];
@@ -24,9 +20,8 @@ function App() {
         key={`row${row}-col${column}`}
         onClick={() => {
           let id = `row${row}-col${column}`;
-          let node = graph.nodes.get(id);
-          console.log(`Meu vizinho são:`);
-          console.log(node.getNeighbors());
+          // let node = graph.nodes.get(id);
+          graph.bfs(id, "#654321")
         }}
       >
       </Box>

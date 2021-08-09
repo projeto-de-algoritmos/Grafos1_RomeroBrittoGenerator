@@ -37,4 +37,34 @@ export default class Graph {
         this.createNodes();
         this.connectNeighbors();
     }
+
+    holdAlg(timeHold) {
+        return new Promise((res) => setTimeout(res, timeHold));
+    }
+
+    async bfs(startNode, color){
+        const queue = [startNode];
+        this.nodes.get(startNode).setColor(color);
+        this.nodes.get(startNode).visitNode();
+
+        while (queue.length > 0){
+            const currentNode = queue.shift();
+            
+            if (!this.nodes.get(currentNode).isVisited){
+                await this.holdAlg(15);
+                this.nodes.get(currentNode).setColor(color);
+                this.nodes.get(currentNode).visitNode();
+            }
+
+            const currentNodeNeighbors =  this.nodes.get(currentNode).getNeighbors();
+            for (const bug of currentNodeNeighbors) {
+                for (const currentNeighborID of bug) {
+                    const currentNeighbor = this.nodes.get(currentNeighborID);
+                    if (!currentNeighbor.isVisited){
+                        queue.push(currentNeighborID);
+                    }
+                }
+            }
+        }
+    }
 }

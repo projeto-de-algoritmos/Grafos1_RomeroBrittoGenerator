@@ -7,15 +7,18 @@ export default class Node {
         
         // Painting board vars
         this.color = "white";
-        this.wall = false;
         this.isVisited = false;
 
         // Neighbors
         this.neighbors = []
     }
     
+    visitNode(){
+        this.isVisited = true;
+    }
+
     setColor(color){
-        if (this.wall === false && this.isVisited === false) {
+        if (this.isVisited === false) {
             this.color = color;
 
             try {
@@ -29,7 +32,7 @@ export default class Node {
             return true;
         }
         
-        console.log(`Pixel ${this.id} either is a wall or is already selected.`);
+        console.log(`Pixel ${this.id} is already selected.`);
         return false;
     }
     getColor() {
@@ -44,7 +47,6 @@ export default class Node {
     }
 
     cleanPixel() {
-        this.wall = false;
         this.isVisited = false;
         this.setColor('#fff');
     }
