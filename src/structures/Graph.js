@@ -45,7 +45,6 @@ export default class Graph {
     async bfs(startNode, color){
         const queue = [startNode];
         this.nodes.get(startNode).setColor(color);
-        this.nodes.get(startNode).visitNode();
 
         while (queue.length > 0){
             const currentNode = queue.shift();
@@ -53,7 +52,6 @@ export default class Graph {
             if (!this.nodes.get(currentNode).isVisited){
                 await this.holdAlg(15);
                 this.nodes.get(currentNode).setColor(color);
-                this.nodes.get(currentNode).visitNode();
             }
 
             const currentNodeNeighbors =  this.nodes.get(currentNode).getNeighbors();
@@ -63,6 +61,22 @@ export default class Graph {
                     if (!currentNeighbor.isVisited){
                         queue.push(currentNeighborID);
                     }
+                }
+            }
+        }
+    }
+
+    async dfs(startNode, color, visited = new Set()){
+        visited.add(startNode);
+        await this.holdAlg(80);
+        if (!this.nodes.get(startNode).isVisited){
+            this.nodes.get(startNode).setColor(color);
+        }
+    
+        for (const bug of this.nodes.get(startNode).getNeighbors()){
+            for (const neighbor of bug){
+                if (!this.nodes.get(neighbor).isVisited && !visited.has(neighbor)){
+                    this.dfs(neighbor, color, visited);
                 }
             }
         }

@@ -1,11 +1,18 @@
 import './App.css';
 import { Box } from "@chakra-ui/react"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Graph from './structures/Graph';
 
 
 function App() {
-  const [numberOfCols, setNumberOfCols] = useState(15);
+  const numberOfCols = 8;
+  const [clearBoard, setClearBoard] = useState(false);
+  const [color, setColor] = useState("#654321")
+
+  useEffect(() => {
+    if (clearBoard) setColor("white");
+    else setColor("#654321");
+  }, [clearBoard]);
 
   const renderCol = (row, graph) => {
     let cols = [];
@@ -20,8 +27,7 @@ function App() {
         key={`row${row}-col${column}`}
         onClick={() => {
           let id = `row${row}-col${column}`;
-          // let node = graph.nodes.get(id);
-          graph.bfs(id, "#654321")
+          graph.dfs(id, color)
         }}
       >
       </Box>
@@ -50,6 +56,11 @@ function App() {
       <div className="alignBoard">
         {renderTable()}
       </div>
+      <button
+        onClick={() => setClearBoard(!clearBoard)}
+      >
+        {clearBoard? 'Pintar quadro' : 'Apagar quadro'}
+      </button>
     </div>
   );
 }
