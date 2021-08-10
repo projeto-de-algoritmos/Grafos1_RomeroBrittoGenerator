@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pixel {
@@ -15,9 +18,39 @@
   flex-direction: row;
 }
 
+.content {
+  width: 50%;
+}
+
 .alignBoard {
   margin: auto;
-  width: 50%;
+  width: 90%;
   border: 3px solid green;
   padding: 10px;
+}
+
+.buttonsContent {
+  height: 40px;
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.swicthContent {
+  display: flex;
+  align-items: center;
+}
+
+.activateSwitch {
+  color: #fff;
+  background-color: #3f51b5;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.deactivateSwitch {
+  color: #fff;
+  background-color: gray;
+  padding: 10px;
+  border-radius: 5px;
 }
