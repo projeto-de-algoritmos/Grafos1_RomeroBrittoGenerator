@@ -15,7 +15,10 @@ Caso você já tenha feito a situação descrita anteriormente, muito provavelme
 O RomeroBrittoGenerator visa buscar a automação destes cenários por meio da utilização de algoritmos para Flood Fill!
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+![image](https://user-images.githubusercontent.com/43852963/128801089-551c70e7-cf0b-4d52-91c6-d666d7d50017.png)
+![image](https://user-images.githubusercontent.com/43852963/128801114-1e820269-5155-4ac5-847a-8b8201cea6be.png)
+![image](https://user-images.githubusercontent.com/43852963/128801208-eff5976b-df72-4faf-bfb7-4b6c58d78571.png)
+
 
 ## Instalação 
 **Linguagem**: JavaScript<br>
@@ -56,7 +59,9 @@ yarn start
 ```
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+A ideia é controlar a pintura pelos botões de switch na parte inferior do site. <br>
+Ao se utilizar a opção de pintar, deve-se clicar o maior número de vezes possível na tabela para que uma obra de arte diferente seja criada!<br>
+Para apagar a tela, basta selecionar a opção de "apagar" e clicar em qualquer lugar da tela.
 
 
 
