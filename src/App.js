@@ -7,6 +7,9 @@ import Graph from "./structures/Graph";
 function App() {
   const numberOfCols = 8;
   const [clearBoard, setClearBoard] = useState(false);
+  const [eraser, setEraser] = useState(false);
+  const [brush, setBrush] = useState(true);
+  const [cleanAll, setCleanAll] = useState(false);
   const [color, setColor] = useState("#654321");
   // const [makeWall, setMakeWall] = useState(false);
 
@@ -53,6 +56,31 @@ function App() {
     ));
   };
 
+  const setSwitches = (type) => {
+    switch (type) {
+      case "brush":
+        setBrush(true);
+        setEraser(false);
+        setCleanAll(false);
+        break;
+      case "eraser":
+        setBrush(false);
+        setEraser(true);
+        setCleanAll(false);
+        break;
+      case "cleanall":
+        setBrush(false);
+        setEraser(false);
+        setCleanAll(true);
+        break;
+      default:
+        setBrush(false);
+        setEraser(false);
+        setCleanAll(false);
+        break;
+    }
+  };
+
   return (
     <div className="App">
       <div className="content">
@@ -60,18 +88,29 @@ function App() {
         <div className="alignBoard">{renderTable()}</div>
         <div className="buttonsContent">
           <div className="swicthContent">
-            {clearBoard && <p className="activateSwitch">Pintar quadro</p>}
-            {!clearBoard && <p className="deactivateSwitch">Pintar quadro</p>}
             <Switch
+              checked={brush}
               color="primary"
-              onChange={() => setClearBoard(!clearBoard)}
+              onChange={() => setSwitches("brush")}
             />
-            {!clearBoard && <p className="activateSwitch">Borracha</p>}
-            {clearBoard && <p className="deactivateSwitch">Borracha</p>}
+            <p className="deactivateSwitch">Pintar quadro</p>
           </div>
-          <Button variant="contained" color="primary">
-            Apagar tudo
-          </Button>
+          <div className="swicthContent">
+            <Switch
+              checked={eraser}
+              color="primary"
+              onChange={() => setSwitches("eraser")}
+            />
+            <p className="deactivateSwitch">Borracha</p>
+          </div>
+          <div className="swicthContent">
+            <Switch
+              checked={cleanAll}
+              color="primary"
+              onChange={() => setSwitches("cleanall")}
+            />
+            <p className="deactivateSwitch">Apagar quadro</p>
+          </div>
           <Button variant="contained" color="primary">
             Romero Britto
           </Button>
