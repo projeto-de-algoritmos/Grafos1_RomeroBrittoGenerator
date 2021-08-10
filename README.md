@@ -10,21 +10,53 @@
 | 18/0021974  |  Leonardo da Silva Gomes     |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+Quem nunca, quando criança, brincou com os aplicativos de arte já pré-instalados nos sistemas operacionais (como o paint ou o gimp) de rabiscar a tela e, em seguida, pintar os espaços em brancos de diferentes cores? <br>
+Caso você já tenha feito a situação descrita anteriormente, muito provavelmente você, depois de adulto, já deve ter pensado "Como os quadros do Romero Britto se parecem com minhas artes de infância!". <br>
+O RomeroBrittoGenerator visa buscar a automação destes cenários por meio da utilização de algoritmos para Flood Fill!
 
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+**Linguagem**: JavaScript<br>
+**Framework**: React JS<br>
+
+Para rodar o projeto, você precisa seguir as seguintes instruções:
+
+1. Clonar o repositório
+```
+git clone https://github.com/projeto-de-algoritmos/Grafos1_RomeroBrittoGenerator.git
+```
+
+2. Entrar na pasta raíz do projeto e instalar as dependências por meio de:
+```
+npm install
+```
+ou então
+```
+yarn install
+```
+
+3. Baixar manualmente a dependêndia Chakra-UI
+```
+npm i @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^4
+```
+ou então
+```
+yarn add @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^4
+```
+
+4. Inicializar a aplicação
+```
+npm start
+```
+ou então
+```
+yarn start
+```
 
 ## Uso 
 Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
-
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
 
 
 
