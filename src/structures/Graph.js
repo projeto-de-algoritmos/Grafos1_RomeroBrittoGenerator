@@ -83,13 +83,25 @@ export default class Graph {
     }
 
     async romeroBritto(option = "dfs") {
-        console.log(this.nodes);
+        const colors = [
+            "#ff0000",
+            "#ff33cc",
+            "#0000ff",
+            "#cc00cc",
+            "#33cc33",
+            "#009999",
+            "#00ffff",
+            "#800000",
+            "#ffff00",
+            "#ff9900"
+        ]
         for (let [id, node] of this.nodes){
             if (!node.isVisited) {
+                let color = colors[Math.floor(Math.random()*colors.length)];
                 if (option === "dfs") {
-                    await this.dfs(id, "#654321");
+                    await this.dfs(id, color);
                 } else {
-                    await this.bfs(id, "#654321");
+                    await this.bfs(id, color);
                 }
             }
         }
