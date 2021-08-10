@@ -81,4 +81,17 @@ export default class Graph {
             }
         }
     }
+
+    async romeroBritto(option = "dfs") {
+        console.log(this.nodes);
+        for (let [id, node] of this.nodes){
+            if (!node.isVisited) {
+                if (option === "dfs") {
+                    await this.dfs(id, "#654321");
+                } else {
+                    await this.bfs(id, "#654321");
+                }
+            }
+        }
+    }
 }

@@ -7,12 +7,18 @@ import Graph from './structures/Graph';
 function App() {
   const numberOfCols = 8;
   const [clearBoard, setClearBoard] = useState(false);
-  const [color, setColor] = useState("#654321")
+  const [color, setColor] = useState("#654321");
+  const [makeWall, setMakeWall] = useState(false);
 
   useEffect(() => {
     if (clearBoard) setColor("white");
     else setColor("#654321");
   }, [clearBoard]);
+
+  useEffect(() => {
+    if (makeWall) setColor("black");
+    else setColor("#654321");
+  }, [makeWall]);
 
   const renderCol = (row, graph) => {
     let cols = [];
@@ -27,7 +33,8 @@ function App() {
         key={`row${row}-col${column}`}
         onClick={() => {
           let id = `row${row}-col${column}`;
-          graph.dfs(id, color)
+          // graph.dfs(id, color)
+          graph.romeroBritto();
         }}
       >
       </Box>
@@ -60,6 +67,9 @@ function App() {
         onClick={() => setClearBoard(!clearBoard)}
       >
         {clearBoard? 'Pintar quadro' : 'Apagar quadro'}
+      </button>
+      <button>
+        Pintar as paredes
       </button>
     </div>
   );
