@@ -18,11 +18,12 @@ export default class Node {
     }
 
     setColor(color){
-        if (color === "white" || color === "#fff") this.isVisited = false;
+        if (color === "white") this.isVisited = false;
 
         if (this.isVisited === false) {
             this.color = color;
             this.visitNode();
+            this.isVisited = true;
 
             try {
                 const pixel = document.getElementById(this.id);

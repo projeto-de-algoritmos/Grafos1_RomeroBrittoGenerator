@@ -5,7 +5,7 @@ import { useState } from "react";
 import Graph from "./structures/Graph";
 
 function App() {
-  const numberOfCols = 8;
+  const numberOfCols = 15;
   const [eraser, setEraser] = useState(false);
   const [brush, setBrush] = useState(true);
   const [cleanAll, setCleanAll] = useState(false);
@@ -25,17 +25,12 @@ function App() {
         onClick={() => {
           let id = `row${row}-col${column}`;
           
-          if (brush) {
-            graph.nodes.get(id).setColor("black");
-          }
           if (eraser) {
-            graph.nodes.get(id).setColor("white");
+            graph.romeroBritto();
           }
           if (cleanAll) {
             graph.dfs(id, "white");
           }
-          console.log("Clicou");
-          // graph.romeroBritto();
         }}
       ></Box>
     ));
@@ -56,11 +51,6 @@ function App() {
 
   const setSwitches = (type) => {
     switch (type) {
-      case "brush":
-        setBrush(true);
-        setEraser(false);
-        setCleanAll(false);
-        break;
       case "eraser":
         setBrush(false);
         setEraser(true);
@@ -87,19 +77,12 @@ function App() {
         <div className="buttonsContent">
           <div className="swicthContent">
             <Switch
-              checked={brush}
-              color="primary"
-              onChange={() => setSwitches("brush")}
-            />
-            <p className="deactivateSwitch">Pintar quadro</p>
-          </div>
-          <div className="swicthContent">
-            <Switch
               checked={eraser}
               color="primary"
               onChange={() => setSwitches("eraser")}
             />
-            <p className="deactivateSwitch">Borracha</p>
+            <p className="deactivateSwitch">Pintar o quadro!<br/>
+            Aperte o mouse quantas vezes você conseguir para criar artes!!!</p>
           </div>
           <div className="swicthContent">
             <Switch
@@ -109,9 +92,6 @@ function App() {
             />
             <p className="deactivateSwitch">Apagar quadro</p>
           </div>
-          <Button variant="contained" color="primary">
-            Romero Britto
-          </Button>
         </div>
       </div>
     </div>

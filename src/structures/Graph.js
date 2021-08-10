@@ -50,7 +50,7 @@ export default class Graph {
             const currentNode = queue.shift();
             
             if (!this.nodes.get(currentNode).isVisited){
-                await this.holdAlg(15);
+                await this.holdAlg(80);
                 this.nodes.get(currentNode).setColor(color);
             }
 
@@ -82,7 +82,7 @@ export default class Graph {
         }
     }
 
-    async romeroBritto(option = "dfs") {
+    async romeroBritto(option = "bfs") {
         const colors = [
             "#ff0000",
             "#ff33cc",
