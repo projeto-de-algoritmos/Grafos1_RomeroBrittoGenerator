@@ -1,27 +1,15 @@
 import "./App.css";
 import { Box } from "@chakra-ui/react";
 import { Button, Switch } from "@material-ui/core";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Graph from "./structures/Graph";
 
 function App() {
   const numberOfCols = 8;
-  const [clearBoard, setClearBoard] = useState(false);
   const [eraser, setEraser] = useState(false);
   const [brush, setBrush] = useState(true);
   const [cleanAll, setCleanAll] = useState(false);
-  const [color, setColor] = useState("#654321");
-  // const [makeWall, setMakeWall] = useState(false);
 
-  useEffect(() => {
-    if (clearBoard) setColor("white");
-    else setColor("#654321");
-  }, [clearBoard]);
-
-  // useEffect(() => {
-  //   if (makeWall) setColor("black");
-  //   else setColor("#654321");
-  // }, [makeWall]);
 
   const renderCol = (row, graph) => {
     let cols = [];
@@ -35,9 +23,19 @@ function App() {
         id={`row${row}-col${column}`}
         key={`row${row}-col${column}`}
         onClick={() => {
-          // let id = `row${row}-col${column}`;
-          // graph.dfs(id, color)
-          graph.romeroBritto();
+          let id = `row${row}-col${column}`;
+          
+          if (brush) {
+            graph.nodes.get(id).setColor("black");
+          }
+          if (eraser) {
+            graph.nodes.get(id).setColor("white");
+          }
+          if (cleanAll) {
+            graph.dfs(id, "white");
+          }
+          console.log("Clicou");
+          // graph.romeroBritto();
         }}
       ></Box>
     ));
